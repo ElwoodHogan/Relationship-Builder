@@ -93,7 +93,7 @@ public class MenuAI : NetworkBehaviour
         NetworkManager.Singleton.StartClient();
         gameObject.SetActive(false);*/
 
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     void ClientConnected(ulong clientId)
@@ -196,7 +196,7 @@ public class MenuAI : NetworkBehaviour
                 friendSteamIDList.Add(friendSteamID);
                 inviteFriendOptions.Add(new Dropdown.OptionData(SteamFriends.GetFriendPersonaName(friendSteamID)));
 
-                Debug.Log("Friend: " + SteamFriends.GetFriendPersonaName(friendSteamID) + " - " + friendSteamID + " - Level " + SteamFriends.GetFriendSteamLevel(friendSteamID));
+                //Debug.Log("Friend: " + SteamFriends.GetFriendPersonaName(friendSteamID) + " - " + friendSteamID + " - Level " + SteamFriends.GetFriendSteamLevel(friendSteamID));
                 if (SteamFriends.GetFriendGamePlayed(friendSteamID, out FriendGameInfo_t friendGameInfo) && friendGameInfo.m_steamIDLobby.IsValid())
                 {
                     // friendGameInfo.m_steamIDLobby is a valid lobby, you can join it or use RequestLobbyData() get its metadata
@@ -232,5 +232,31 @@ public class MenuAI : NetworkBehaviour
     public void JoinFriendLobby()
     {
         SteamMatchmaking.JoinLobby(friendLobbyIDList[friendLobbyiesDropdown.value]);
+    }
+
+
+    public void OnSyncClick()
+    {
+        Debug.Log("MultiplayerDemoPlayer:OnSyncClick");
+        if (IsServer)
+        {
+            SyncClientRpc();
+        }
+        else
+        {
+            SyncServerRpc();
+        }
+    }
+
+    [ServerRpc]
+    void SyncServerRpc()
+    {
+        Debug.Log("MultiplayerDemoPlayer:SyncServerRpc");
+    }
+
+    [ClientRpc]
+    void SyncClientRpc()
+    {
+        Debug.Log("MultiplayerDemoPlayer:SyncClientRpc");
     }
 }
