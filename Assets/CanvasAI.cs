@@ -127,6 +127,9 @@ public class CanvasAI : NetworkBehaviour
 			hostSteamID = ownerSteamID;
 			StartClient();
 		}
+
+		GameObject spawnedObject = GameObject.Instantiate(spawnedObjectPerfab);
+		spawnedObject.GetComponent<NetworkObject>().Spawn();
 	}
 
 	public void RequestFriendLobbyList()
