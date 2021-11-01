@@ -69,7 +69,7 @@ public class MenuAI : MonoBehaviour
         };
 
         NetworkManager.Singleton.StartHost();
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePrivate, 2);
+        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 3);
         hostSteamID = SteamUser.GetSteamID();
         StwitchPanel();
     }
@@ -89,7 +89,7 @@ public class MenuAI : MonoBehaviour
         NetworkManager.Singleton.StartClient();
         gameObject.SetActive(false);*/
 
-        StwitchPanel();
+        gameObject.SetActive(false);
     }
 
     void ClientConnected(ulong clientId)
