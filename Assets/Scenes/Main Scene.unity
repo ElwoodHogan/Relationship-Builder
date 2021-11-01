@@ -1018,7 +1018,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 241101816}
         m_TargetAssemblyTypeName: MenuAI, Assembly-CSharp
-        m_MethodName: Join
+        m_MethodName: JoinFriendLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

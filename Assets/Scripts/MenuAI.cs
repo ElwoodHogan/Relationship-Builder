@@ -8,7 +8,7 @@ using Netcode.Transports.SteamP2P;
 using UnityEngine.UI;
 using Steamworks;
 
-public class MenuAI : MonoBehaviour
+public class MenuAI : NetworkBehaviour
 {
     public GameObject HostOrJoinPanel, InvitePanel;
 
@@ -82,7 +82,10 @@ public class MenuAI : MonoBehaviour
         NetworkManager.Singleton.GetComponent<SteamP2PTransport>().ConnectToSteamID = hostSteamID.m_SteamID;
 
         Debug.Log($"Joining room hosted by {NetworkManager.Singleton.GetComponent<SteamP2PTransport>().ConnectToSteamID}");
-        SteamMatchmaking.JoinLobby(friendLobbyIDList[friendLobbyiesDropdown.value]);
+
+        NetworkManager.Singleton.StartClient();
+
+
         /*
         //clicked join
         if (IpInput.text.Length <=0) NetworkManager.Singleton.GetComponent<UNetTransport>().ConnectAddress = "127.0.0.1";
@@ -224,5 +227,10 @@ public class MenuAI : MonoBehaviour
             Debug.Log("Successfully invite " + SteamFriends.GetFriendPersonaName(friendSteamID));
         else
             Debug.Log("Failed to invite " + SteamFriends.GetFriendPersonaName(friendSteamID));
+    }
+
+    public void JoinFriendLobby()
+    {
+        SteamMatchmaking.JoinLobby(friendLobbyIDList[friendLobbyiesDropdown.value]);
     }
 }
