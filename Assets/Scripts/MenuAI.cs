@@ -82,6 +82,7 @@ public class MenuAI : MonoBehaviour
         NetworkManager.Singleton.GetComponent<SteamP2PTransport>().ConnectToSteamID = hostSteamID.m_SteamID;
 
         Debug.Log($"Joining room hosted by {NetworkManager.Singleton.GetComponent<SteamP2PTransport>().ConnectToSteamID}");
+        SteamMatchmaking.JoinLobby(friendLobbyIDList[friendLobbyiesDropdown.value]);
         /*
         //clicked join
         if (IpInput.text.Length <=0) NetworkManager.Singleton.GetComponent<UNetTransport>().ConnectAddress = "127.0.0.1";
