@@ -7,13 +7,6 @@
       "dependencies": {},
       "hash": "b08829c71ca40065fe6d7c99cd3aee059cd02fa7"
     },
-    "com.hwaet.projectcloner": {
-      "version": "https://github.com/hwaet/UnityProjectCloner.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "03574fbe08f90d9482056b06f99c4072aa6b3920"
-    },
     "com.unity.2d.common": {
       "version": "4.0.3",
       "depth": 1,

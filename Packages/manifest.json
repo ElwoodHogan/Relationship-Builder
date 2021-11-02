@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.community.netcode.transport.steamp2p": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.steamp2p",
-    "com.hwaet.projectcloner": "https://github.com/hwaet/UnityProjectCloner.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "5.1.5",
     "com.unity.collab-proxy": "1.5.7",
