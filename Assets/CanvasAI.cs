@@ -182,6 +182,6 @@ public class CanvasAI : NetworkBehaviour
 
 	public void PrintLobbyMembers()
     {
-		SteamMatchmaking.GetNumLobbyMembers(lobbyID);
+		Debug.Log(SteamMatchmaking.GetNumLobbyMembers(lobbyID));
 	}
 }
