@@ -49,21 +49,22 @@ public class CanvasAI : NetworkBehaviour
 
 		NetworkManager.Singleton.OnServerStarted += () => {
 			Debug.Log("Server started");
-			GameObject spawnedObject = GameObject.Instantiate(spawnedObjectPerfab);
+			GameObject spawnedObject = Instantiate(spawnedObjectPerfab);
 			spawnedObject.GetComponent<NetworkObject>().Spawn();
 		};
+		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
 
 		NetworkManager.Singleton.StartHost();
 
 		hostSteamID = SteamUser.GetSteamID();
-
-		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
 	}
 
 	public void StartClient()
 	{
 		NetworkManager.Singleton.OnClientConnectedCallback += ClientConnected;
 		NetworkManager.Singleton.OnClientDisconnectCallback += ClientDisconnected;
+
+		NetworkManager.Singleton.StartClient();
 
 		NetworkManager.Singleton.GetComponent<SteamP2PTransport>().ConnectToSteamID = hostSteamID.m_SteamID;
 
@@ -74,7 +75,7 @@ public class CanvasAI : NetworkBehaviour
 		//	NetworkManager.Singleton.StartClient();
 		//	SwitchToGameplay();
 		//};
-		NetworkManager.Singleton.StartClient();
+		
 	}
 
 	void ClientConnected(ulong clientId)
@@ -118,22 +119,24 @@ public class CanvasAI : NetworkBehaviour
 		else
 			Debug.Log("Failed to join lobby.");
 
-		int playerCount = SteamMatchmaking.GetNumLobbyMembers((CSteamID)result.m_ulSteamIDLobby);
+		int playerCount = SteamMatchmaking.GetNumLobbyMembers(lobbyID);
 
+		Debug.Log("PlayerCount: " + playerCount);
 		// Join host's game directly
 		if (playerCount > 1)
 		{
-			var ownerSteamID = SteamMatchmaking.GetLobbyMemberByIndex((CSteamID)result.m_ulSteamIDLobby, 0);
+			var ownerSteamID = SteamMatchmaking.GetLobbyMemberByIndex(lobbyID, 0);
 			hostSteamID = ownerSteamID;
 			StartClient();
 		}
 
-		GameObject spawnedObject = GameObject.Instantiate(spawnedObjectPerfab);
+		GameObject spawnedObject = Instantiate(spawnedObjectPerfab);
 		spawnedObject.GetComponent<NetworkObject>().Spawn();
 	}
 
 	public void RequestFriendLobbyList()
 	{
+		friendLobbyiesDropdown.ClearOptions();
 		if (SteamManager.Initialized)
 		{
 			int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
