@@ -24,7 +24,6 @@ public class CanvasAI : NetworkBehaviour
 	Callback<LobbyEnter_t> lobbyEnter;
 	Callback<LobbyCreated_t> lobbyCreated;
 
-	List<CSteamID> lobbyIDList = new List<CSteamID>();
 	List<CSteamID> friendSteamIDList = new List<CSteamID>();
 	List<CSteamID> friendLobbyIDList = new List<CSteamID>();
 
@@ -179,5 +178,10 @@ public class CanvasAI : NetworkBehaviour
 	public void OnSyncSpawnedObjectClick()
 	{
 		spawnableAI.Instance.OnSyncClick();
+	}
+
+	public void PrintLobbyMembers()
+    {
+		SteamMatchmaking.GetNumLobbyMembers(lobbyID);
 	}
 }

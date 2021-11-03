@@ -19,7 +19,7 @@ public class spawnableAI : NetworkBehaviour
 	void Awake()
 	{
 		Instance = this;
-		print("doned");
+		//print("doned");
 	}
 
 	void ChangeNetworkVariableInt()
