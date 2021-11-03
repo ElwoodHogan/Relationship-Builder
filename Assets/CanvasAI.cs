@@ -116,6 +116,7 @@ public class CanvasAI : NetworkBehaviour
 	void OnLobbyEntered(LobbyEnter_t result)
 	{
 		lobbyID = (CSteamID)result.m_ulSteamIDLobby;
+		Debug.Log(result.m_EChatRoomEnterResponse);
 		if (result.m_EChatRoomEnterResponse == 1)
 			Debug.Log($"Successfully joined lobby {SteamMatchmaking.GetLobbyData((CSteamID)result.m_ulSteamIDLobby, "name")}!");
 		else
