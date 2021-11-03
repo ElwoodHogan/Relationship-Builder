@@ -52,9 +52,11 @@ public class CanvasAI : NetworkBehaviour
 			GameObject spawnedObject = Instantiate(spawnedObjectPerfab);
 			spawnedObject.GetComponent<NetworkObject>().Spawn();
 		};
-		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
+		
 
 		NetworkManager.Singleton.StartHost();
+
+		SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
 
 		hostSteamID = SteamUser.GetSteamID();
 	}
