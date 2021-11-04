@@ -190,4 +190,12 @@ public class CanvasAI : NetworkBehaviour
 	{
 		Debug.Log("ServerRpc");
 	}
+
+	/*
+	 * F:\Unity RB-Test\Relationship Builder\Assets\com.unity.netcode.gameobjects@1.0.0-pre.\Runtime\Core\NetworkObject.cs
+	 * F:\Unity RB-Test\Relationship Builder\Assets\com.unity.netcode.gameobjects@1.0.0-pre.\Runtime\Core\NetworkObject.cs
+	 * 
+	 * 
+	 * 
+	 */
 }

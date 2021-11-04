@@ -512,7 +512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Object Sync
+  m_Text: Canvas Sync
 --- !u!222 &132642435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1708,7 +1708,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1987810233}
         m_TargetAssemblyTypeName: CanvasAI, Assembly-CSharp
-        m_MethodName: OnSyncSpawnedObjectClick
+        m_MethodName: SimplePrintServerRpc
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1802,6 +1802,11 @@ MonoBehaviour:
   DontDestroy: 1
   RunInBackground: 1
   LogLevel: 1
+  m_ConnectedClientIds: []
+  <IsServer>k__BackingField: 0
+  <IsClient>k__BackingField: 0
+  <IsListening>k__BackingField: 0
+  <IsConnectedClient>k__BackingField: 0
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1287590581}
@@ -1815,7 +1820,7 @@ MonoBehaviour:
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
-    ConnectionData: 
+    ConnectionData: []
     EnableTimeResync: 0
     TimeResyncInterval: 30
     EnsureNetworkVariableLengthSafety: 0
@@ -1827,6 +1832,7 @@ MonoBehaviour:
     LoadSceneTimeOut: 120
     MessageBufferTimeout: 20
     EnableNetworkLogs: 1
+  <ConnectedHostname>k__BackingField: 
 --- !u!4 &1287590583
 Transform:
   m_ObjectHideFlags: 0
