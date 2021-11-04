@@ -184,4 +184,10 @@ public class CanvasAI : NetworkBehaviour
     {
 		Debug.Log(SteamMatchmaking.GetNumLobbyMembers(lobbyID));
 	}
+
+	[ServerRpc(RequireOwnership = false)]
+	public void SimplePrintServerRpc()
+	{
+		Debug.Log("ServerRpc");
+	}
 }

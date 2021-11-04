@@ -32,10 +32,12 @@ public class spawnableAI : NetworkBehaviour
 		Debug.Log("MultiplayerDemoSpawnedObject:OnSyncClick");
 		if (IsServer)
 		{
+			Debug.Log("clientrpc entered");
 			SyncClientRpc();
 		}
 		else
 		{
+			Debug.Log("serverrpc entered");
 			SyncServerRpc();
 		}
 	}
