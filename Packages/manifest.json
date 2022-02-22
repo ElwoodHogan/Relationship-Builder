@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.community.netcode.transport.steamnetworking": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.steamnetworking#bdb9850f7d4d59a3b2a0eb224949966c5a131a03",
     "com.community.netcode.transport.steamp2p": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.steamp2p",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "5.2.0",

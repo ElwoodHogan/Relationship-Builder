@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.community.netcode.transport.steamnetworking": {
+      "version": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.steamnetworking#bdb9850f7d4d59a3b2a0eb224949966c5a131a03",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "bdb9850f7d4d59a3b2a0eb224949966c5a131a03"
+    },
     "com.community.netcode.transport.steamp2p": {
       "version": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.steamp2p",
       "depth": 0,
